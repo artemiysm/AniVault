@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AniVault — Офлайн-архив для обучения</title>
+    <!-- Telegram WebApp SDK — ОБЯЗАТЕЛЬНО -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         body { font-family: 'Segoe UI', sans-serif; background: #0f0f1b; color: #e0e0ff; margin: 0; padding: 0; }
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
@@ -25,8 +27,7 @@
         <header>
             <h1>🎬 AniVault</h1>
             <div class="subtitle">Ваш персональный офлайн-архив для обучения через видео и аниме</div>
-            <a href="https://t.me/ScakchkaBot" class="btn">📲 Получить в Telegram</a>
-            <a href="AniVault.exe" class="btn" style="background:#555">💻 Скачать для Windows</a>
+            <a href="#" class="btn" onclick="openApp()">📲 Открыть приложение</a>
         </header>
 
         <div class="disclaimer">
@@ -63,13 +64,50 @@
             <h2>Часто задают</h2>
             <p><strong>Безопасно ли?</strong> — Да. Мы не храним контент, только помогаем вам создать личный архив.</p>
             <p><strong>Нужен ли интернет?</strong> — Только для скачивания. Просмотр — полностью офлайн.</p>
-            <p><strong>Есть ли подписка?</strong> — Базовая версия бесплатна. Pro-режим (ускорение, субтитры, Anki) — 149 ₽/мес.</p>
+            <p><strong>Есть ли подписка?</strong> — Базовая версия бесплатна. Pro-режим — 149 ₽/мес.</p>
         </div>
 
         <footer>
             <p>AniVault — инструмент для образовательного использования</p>
-            <p><a href="dmca.html" style="color:#00ccff">DMCA / Удаление</a> | <a href="terms.html" style="color:#00ccff">Условия</a></p>
+            <p>
+                <a href="#" onclick="openInBrowser('terms.html')" style="color:#00ccff; margin: 0 10px;">Условия</a> | 
+                <a href="#" onclick="openInBrowser('dmca.html')" style="color:#00ccff; margin: 0 10px;">DMCA</a>
+            </p>
         </footer>
     </div>
+
+    <script>
+        // === Функция для открытия ссылок во внешнем браузере ===
+        function openInBrowser(path) {
+            // Формируем полный URL (важно для GitHub Pages)
+            const baseUrl = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
+            const fullUrl = new URL(path, baseUrl).href;
+
+            if (window.Telegram && window.Telegram.WebApp) {
+                // Telegram Web App → открываем во внешнем браузере
+                window.Telegram.WebApp.openLink(fullUrl, { try_instant_view: false });
+            } else {
+                // Обычный браузер → просто переходим
+                window.open(fullUrl, '_blank');
+            }
+        }
+
+        // Автооткрытие приложения при запуске из бота (опционально)
+        function openApp() {
+            const searchParams = new URLSearchParams(window.location.search);
+            const q = searchParams.get('q');
+            let appUrl = 'anivault://'; // или ссылка на ваш EXE/APK
+            if (q) appUrl += '?q=' + encodeURIComponent(q);
+            openInBrowser(appUrl);
+        }
+
+        // Инициализация Telegram WebApp (опционально, для стиля)
+        if (window.Telegram?.WebApp) {
+            Telegram.WebApp.ready();
+            Telegram.WebApp.expand();
+            Telegram.WebApp.setHeaderColor('#0f0f1b');
+            Telegram.WebApp.setBackgroundColor('#0f0f1b');
+        }
+    </script>
 </body>
 </html>

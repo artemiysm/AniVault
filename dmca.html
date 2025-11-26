@@ -1,10 +1,126 @@
-<h2>Уведомление о нарушении авторских прав</h2>
-<p>Если вы обнаружили контент, нарушающий ваши права, отправьте запрос на:</p>
-<p><strong>removal@anivault.app</strong></p>
-<p>В письме укажите:</p>
-<ul>
-  <li>Описание произведения</li>
-  <li>Ссылка на источник</li>
-  <li>Контактные данные</li>
-</ul>
-<p>Мы рассмотрим запрос в течение 24 часов.</p>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMCA — AniVault</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            background: #0f0f1b; 
+            color: #e2e8f0; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #1a1a2e;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        h1 {
+            color: #00ffaa;
+            font-weight: 700;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #64ffda;
+            font-size: 1.4em;
+            margin: 25px 0 15px;
+            border-left: 4px solid #4ade80;
+            padding-left: 12px;
+        }
+        p, li {
+            margin: 12px 0;
+            font-size: 1.05em;
+        }
+        ul {
+            padding-left: 24px;
+        }
+        li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        li:before {
+            content: "🔹";
+            color: #4ade80;
+            position: absolute;
+            left: -24px;
+        }
+        .highlight {
+            background: rgba(0, 200, 150, 0.1);
+            border-left: 3px solid #00c896;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        .email {
+            background: #0d1117;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.1em;
+            text-align: center;
+            letter-spacing: 1px;
+            margin: 15px 0;
+            word-break: break-all;
+        }
+        .note {
+            background: #251b38;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            font-style: italic;
+            color: #a78bfa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ Уведомление об авторских правах</h1>
+        
+        <p>
+            AniVault уважает права авторов и правообладателей. 
+            Наш сервис предназначен <strong>исключительно для личного, офлайн-использования в образовательных целях</strong> 
+            (ст. 1274 ГК РФ).
+        </p>
+
+        <h2>Как подать запрос на удаление</h2>
+        <p>Если вы обнаружили материал, который, по вашему мнению, нарушает ваши авторские права, пожалуйста, отправьте уведомление на:</p>
+        
+        <div class="email">removal@anivault.app</div>
+
+        <p><strong>В письме укажите:</strong></p>
+        <ul>
+            <li>Полное название и описание произведения</li>
+            <li>Прямая ссылка на источник (официальный релиз)</li>
+            <li>Ваши контактные данные (имя, email, организация)</li>
+            <li>Подтверждение ваших полномочий (если действуете от имени правообладателя)</li>
+        </ul>
+
+        <div class="highlight">
+            ⏱️ <strong>Мы обрабатываем все запросы в течение 24 часов.</strong><br>
+            После подтверждения — соответствующие данные удаляются из пользовательских сессий.
+        </div>
+
+        <div class="note">
+            ❗ AniVault не хранит, не кэширует и не распространяет контент.<br>
+            Все операции происходят локально на устройстве пользователя.<br>
+            Мы выступаем только в роли технического инструмента для офлайн-архивирования.
+        </div>
+    </div>
+    <!-- В КОНЕЦ ФАЙЛА -->
+    <div style="text-align:center; margin-top:30px;">
+      <button onclick="window.history.back()" 
+              style="background:#334155; color:white; border:0; padding:10px 24px; border-radius:8px; font-size:16px;">
+          🔙 Назад
+      </button>
+</div>
+</body>
+</html>
